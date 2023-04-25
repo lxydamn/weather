@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +14,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;"/>
-    <link rel="icon" href="../res/favicon.ico">
+    <link rel="icon" href="res/favicon.ico">
     <title>天气实时查询系统</title>
 
 </head>
@@ -122,14 +123,14 @@
                     <el-row :gutter="20" style="margin-top: 50px">
                         <el-col :span="8">
                             <div class="img-box">
-                                <img src="../res/clothes.png" width="64" height="64"><br>
+                                <img src="res/clothes.png" width="64" height="64"><br>
                                 <span>穿衣指数</span><br>
                                 <span>{{daily.clothes}}</span>
                             </div>
                         </el-col>
                         <el-col :span="8">
                             <div class="img-box">
-                                <img src="../res/icons/air.png" width="64" height="64"><br>
+                                <img src="res/icons/air.png" width="64" height="64"><br>
 
                                 <span>空气指数</span><br>
                                 <span>{{daily.air}}</span>
@@ -137,7 +138,7 @@
                         </el-col>
                         <el-col :span="8">
                             <div class="img-box">
-                                <img src="../res/cold.png" width="64" height="64"><br>
+                                <img src="res/cold.png" width="64" height="64"><br>
                                 <span>感冒指数</span><br>
                                 <span>{{daily.cold}}</span>
                             </div>
@@ -146,21 +147,21 @@
                     <el-row :gutter="20" style="margin-top: 30px">
                         <el-col :span="8">
                             <div class="img-box">
-                                <img src="../res/car.png" width="64" height="64"><br>
+                                <img src="res/car.png" width="64" height="64"><br>
                                 <span>洗车指数</span><br>
                                 <span>{{daily.car}}</span>
                             </div>
                         </el-col>
                         <el-col :span="8">
                             <div class="img-box">
-                                <img src="../res/run.png" width="64" height="64"> <br>
+                                <img src="res/run.png" width="64" height="64"> <br>
                                 <span>运动指数</span> <br>
                                 <span>{{daily.run}}</span>
                             </div>
                         </el-col>
                         <el-col :span="8">
                             <div class="img-box">
-                                <img src="../res/sun.png" width="64" height="64"><br>
+                                <img src="res/sun.png" width="64" height="64"><br>
                                 <span>紫外线长度</span> <br>
                                 <span>{{daily.sun}}</span>
                             </div>
@@ -177,11 +178,11 @@
                 <div class="weather-content">
                     <ul style="list-style-type: none">
                         <li class="day-list" v-for="(day, index) in weatherdays" :key="index">
-                            <img :src=" '../res/icons/' + day.iconDay + '.svg' " style="width: 45px;height: 45px;">
+                            <img :src=" 'res/icons/' + day.iconDay + '.svg' " style="width: 45px;height: 45px;">
                             <p>{{day.fxDate.substr(5, 2) + "月" + day.fxDate.substr(8, 10) + "日"}} </p>
                             <p> {{ day.textDay}}</p>
 
-                            <img :src=" '../res/icons/' + day.iconNight + '.svg' " style="width: 45px;height: 45px; margin-top: 200px">
+                            <img :src=" 'res/icons/' + day.iconNight + '.svg' " style="width: 45px;height: 45px; margin-top: 200px">
                             <p> {{ day.textNight}}</p>
                             <p style="font-size: smaller"> {{day.windDirDay}} {{day.windScaleDay}}级</p>
                         </li>
@@ -195,44 +196,44 @@
     </el-row>
 </div>
 <style>
-#app{
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 5%;
-    width: 1350px;
-    height: 1000px;
-}
-.box-card{
-    height: 600px;
-    border-radius: 20px;
-}
+    #app{
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-top: 5%;
+        width: 1350px;
+        height: 1000px;
+    }
+    .box-card{
+        height: 600px;
+        border-radius: 20px;
+    }
 
-.box-card-weather {
-    height: 600px;
-    border-radius:20px;
-}
+    .box-card-weather {
+        height: 600px;
+        border-radius:20px;
+    }
 
-body {
-    background-color: #F6F6F6;
-    background-image: url("../res/background.jpg");
-    background-size: 100%;
-}
-.weather-info {
-    margin-top: 20px;
-}
-.img-box {
-    text-align: center;
-}
-.day-list{
-    display: inline;
-    float: left;
-    margin-right: 15px;
-    padding-left: 0px;
-    width:100px;
-    height: 500px;
-    text-align: center;
-    align-items: center;
-}
+    body {
+        background-color: #F6F6F6;
+        background-image: url("res/background.jpg");
+        background-size: 100%;
+    }
+    .weather-info {
+        margin-top: 20px;
+    }
+    .img-box {
+        text-align: center;
+    }
+    .day-list{
+        display: inline;
+        float: left;
+        margin-right: 15px;
+        padding-left: 0px;
+        width:100px;
+        height: 500px;
+        text-align: center;
+        align-items: center;
+    }
 
 </style>
 
@@ -276,7 +277,7 @@ body {
             // 城市选择器
             const getCity = () => {
                 axios({
-                    url:"/getcity/",
+                    url:"/weather-1.0-SNAPSHOT/getcity",
                     method: "GET"
                 }).then((resp) => {
                     cities.value = resp.data;
@@ -370,7 +371,7 @@ body {
                         method: "GET",
                     }).then((resp) => {
                         weatherInfo.temp = resp.data.now.temp;
-                        weatherInfo.icon = "../res/icons/" + resp.data.now.icon + ".svg";
+                        weatherInfo.icon = "res/icons/" + resp.data.now.icon + ".svg";
                         weatherInfo.text = resp.data.now.text;
                         weatherInfo.humidity = resp.data.now.humidity;
                         weatherInfo.updateTime = resp.data.updateTime.substring(11, 16);
@@ -394,7 +395,7 @@ body {
 
                     axios({
                         url:"https://devapi.qweather.com/v7/weather/7d?location="
-                        + res.data.location[0].id + "&key=cecc28e842414680900682174892209c",
+                            + res.data.location[0].id + "&key=cecc28e842414680900682174892209c",
                         method:"GET",
                     }).then((resp) => {
                         weatherdays.value = resp.data.daily;

@@ -1,19 +1,22 @@
-package com.web.weather;
-
+package com.example.weather;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.nio.charset.Charset;
 
+@WebServlet(urlPatterns = "/getcity/")
 public class CityServlet extends HttpServlet {
     private String jsonStr;
     public void getJson() {
         // 读取areas json 文件
         try {
-            File file = new File(getClass().getResource("/areas.json").toURI());
+            String fileName = this.getServletContext().getRealPath("/WEB-INF/classes/areas.json");
+
+            File file = new File(fileName);
 
             FileReader fileReader = new FileReader(file,Charset.forName("UTF-8"));
             int ch;
